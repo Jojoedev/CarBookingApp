@@ -1,0 +1,37 @@
+﻿@page
+@model CarBookingApp.Pages.Logics.DetailsModel
+@{
+}
+
+<div class="card">
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Model</th>
+            <th>Colour</th>
+            <th>Year</th>
+            <th>Number Plate</th>
+            <th>Location</th>
+            <th>User</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.Car.Make.Name</td>
+           <td>@Model.Car.CarModel.Name</td>
+           <td>@Model.Car.Colour.Name</td>
+           <td>@Model.Car.Year</td>
+            <td>@Model.Car.NumberPlate</td>
+            <td>@Model.Car.Location</td>
+            <td>@Model.Car.NameOfDriver</td>
+        </tr>
+    
+       
+
+    </tbody>
+    
+</table>
+
+<div>   <a href="/Logics/List" class="btn btn-primary">Back</a> </div>
+</div>

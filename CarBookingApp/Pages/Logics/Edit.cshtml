@@ -1,0 +1,70 @@
+﻿@page
+@model CarBookingApp.Pages.Logics.EditModel
+@{
+}
+
+<div class="col-12">
+
+<div class="card">
+
+    <form method="post">
+    <table>
+         
+        <thead> 
+            <tr>
+               @* <th> Id</th>*@
+                <td> <input asp-for="@Model.car.Id" hidden class="form-control"/>
+            </tr>
+            
+            <tr>
+                 <th> Name</th>
+                 <td> <input asp-for="@Model.car.Make.Name" class="form-control"/>  
+            </tr>
+            
+            
+            <tr>
+                 <th> Model</th>
+                 <td> <input asp-for="@Model.car.CarModel.Name" class="form-control"/> </td>
+            </tr>
+            <tr>
+                 <th> Colour</th>
+                 <td> <input asp-for="@Model.car.Colour.Name" class="form-control"/> </td>
+            </tr>
+            
+            <tr>
+                 <th> Date Created </th>
+                 <td> <input asp-for="@Model.car.DateCreated = DateTime.Now" class="form-control"/> </td>
+            </tr>
+            <tr>
+                 <th> Year</th>
+                 <td> <input asp-for="@Model.car.Year" class="form-control"/> </td>
+            <tr>
+                 <th> Number Plate</th>
+                 <td> <input asp-for="@Model.car.NumberPlate" class="form-control"/> </td>
+            <tr>
+                 <th> Location</th>
+                 <td> <input asp-for="@Model.car.Location" class="form-control"/> </td>
+            </tr>
+            <tr>
+                 <th> User</th>
+                 <td> <input asp-for="@Model.car.NameOfDriver" class="form-control"/> </td>
+            </tr>
+           
+        </thead>
+       
+        <tbody>
+            <tr>
+                
+            </tr>
+         
+        </tbody>
+
+    </table>
+
+     <br />
+    <div> <input type="submit" value="Submit" name="name" class="btn btn-outline-info" /> &nbsp;
+    <a href="/Logics/List" class="btn btn-outline-secondary" >Back to List</a>  </div>  
+    </form>
+</div>
+</div>
+ 

@@ -1,0 +1,18 @@
+﻿@page
+@model CarBookingApp.Pages.ColourLogic.CreateColourModel
+@{
+}
+
+<div class="card">
+    <form method="post">
+        
+            
+        <div class="form-group">
+          <label asp-for="@Model.NewColour.Name" class="control-lable"></label>
+          <input asp-for="@Model.NewColour.Name" class="form-control" placeholder="Enter Name of Colour" />
+        </div>
+        <br />
+        <input type="submit" name="" value="Submit" class="btn btn-primary" />
+        <a href="/ColourLogic/ColourList" class="btn btn-outline">List</a>
+    </form>
+</div>

@@ -1,0 +1,23 @@
+﻿@page
+@model CarBookingApp.Pages.Makes.CreateModel
+@{
+}
+<h4> Create New Make</h4>
+
+<div class="card">
+    <div>
+        <form method="post">
+           <div class="card-body">
+               
+               <div class="card-body">
+                 <label asp-for="@Model.NewMake.Name" class="control-label"> </label>>
+                 <input asp-for="@Model.NewMake.Name" class="form-control" />
+               </div>
+
+
+          </div>
+          <input type="submit" name="name" value="Submit" class="btn btn-primary" /> 
+            <a href="/Makes/ListMakes" class="btn btn-outline-primary"> Back to List</a>
+        </form>
+    </div>
+</div>

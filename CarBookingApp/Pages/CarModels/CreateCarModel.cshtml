@@ -1,0 +1,19 @@
+﻿@page
+@model CarBookingApp.Pages.CarModels.CreateCarModelModel
+@{
+}
+
+<div class="card">
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="@Model.CarModelObj.Name" class="control-label"></label>
+        <input asp-for="@Model.CarModelObj.Name" class="form-control" placeholder="Enter Model Name" />
+
+    </div>
+    <br />
+    <div>
+    <input type="Submit" value="Submit" name="" class="btn btn-primary" />
+    </div>
+</form>
+</div>

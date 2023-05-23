@@ -1,0 +1,87 @@
+﻿@page
+@model CarBookingApp.Pages.Logics.CreateModel
+@{
+}
+<h4>Create a Car</h4>
+
+<div class="col-12">
+  <div class="card">
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"> </div>
+    <div class="card-body">
+    <div class="form-group">
+         <label asp-for="NewCar.MakeId" class="control-label"></label> 
+        
+         <select class="form-control" asp-for="NewCar.MakeId" asp-items="Model.Make">
+             <option>Select Make</option>
+         </select>
+         <span asp-validation-for="@Model.NewCar.MakeId" class="text-danger"></span>
+       
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="NewCar.CarModelId" class="control-label"></label>
+        <select asp-for="NewCar.CarModelId" asp-items="Model.CarModel" class="form-control"> 
+            <option> Select Model </option>
+        </select>
+        <span asp-validation-for="@Model.NewCar.CarModelId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NewCar.ColourId" class="control-label"></label>
+        <select asp-for="NewCar.ColourId" asp-items="Model.Colour" class="form-control"> 
+            <option> Select Colour </option>
+        </select>
+        <span asp-validation-for="@Model.NewCar.ColourId" class="text-danger"></span>
+    </div>
+
+      
+    <div class="form-group">
+
+         <label asp-for="@Model.NewCar.DateCreated" class="control-lable"></label>
+         <input asp-for="@Model.NewCar.DateCreated=DateTime.Now" class="form-control"/>
+          <span asp-validation-for="@Model.NewCar.Make"></span>
+    </div>
+    <div class="form-group">
+
+         @*<label asp-for="@Model.NewCar.Model" class="control-lable"></label>
+         <input asp-for="@Model.NewCar.Model" class="form-control"/>
+          <span asp-validation-for="@Model.NewCar.Model"></span>*@
+    </div>
+    
+    
+    
+    <div class="form-group">
+
+         <label asp-for="@Model.NewCar.Year" class="control-lable"></label>
+         <input asp-for="@Model.NewCar.Year" class="form-control"/>
+          <span asp-validation-for="@Model.NewCar.Year"></span>
+    </div>
+    
+    <div class="form-group">
+
+         <label asp-for="@Model.NewCar.NumberPlate" class="control-lable"></label>
+         <input asp-for="@Model.NewCar.NumberPlate" class="form-control"/>
+          <span asp-validation-for="@Model.NewCar.NumberPlate"></span>
+    </div>
+    <div class="form-group">
+
+         <label asp-for="@Model.NewCar.Location" class="control-lable"></label>
+         <input asp-for="@Model.NewCar.Location" class="form-control"/>
+          <span asp-validation-for="@Model.NewCar.Location"></span>
+    </div>
+    <div class="form-group">
+
+         <label asp-for="@Model.NewCar.NameOfDriver" class="control-lable"></label>
+         <input asp-for="@Model.NewCar.NameOfDriver" class="form-control"/>
+          <span asp-validation-for="@Model.NewCar.NameOfDriver"></span>
+    </div>
+    <br />
+    
+    <input type="Submit" value="Submit" class="btn btn-primary"/> &nbsp;
+
+    <a href="/Logics/List" class="btn btn-outline-info"> Back to List</a>
+    </div>
+    
+</form>
+</div>
+</div>

@@ -1,0 +1,26 @@
+﻿@page
+@model CarBookingApp.Pages.Makes.ListModel
+@{
+}
+
+<h4>Car Make List</h4>  <div><a href="/Makes/CreateMakes" class="btn btn-outline-primary"> Create new </a></div>
+
+<div class="card">
+<table class="col-4">
+    <thead>
+    <tr>
+        <th>Name</th>
+    </tr>
+    </thead>
+
+    <tbody>
+        @foreach(var item in @Model.Makes)
+        {
+            <tr>         
+            <td> @item.Name  </td>
+           </tr>
+        }
+    </tbody>
+    </table>
+    
+</div>
