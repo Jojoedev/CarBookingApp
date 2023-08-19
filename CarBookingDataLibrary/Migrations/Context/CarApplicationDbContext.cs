@@ -1,13 +1,16 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
+using CarBookingApp.Identity;
 
 namespace CarBookingDataLibrary.Migrations.Context
 {
-    public class CarApplicationDbContext : DbContext
+    public class CarApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public CarApplicationDbContext(DbContextOptions<CarApplicationDbContext> options) : base(options)
         {

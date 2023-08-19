@@ -2,11 +2,12 @@
 @model CarBookingApp.Pages.Makes.ListModel
 @{
 }
+<div>List of Car Makes</div>
 
-<h4>Car Make List</h4>  <div><a href="/Makes/CreateMakes" class="btn btn-outline-primary"> Create new </a></div>
+<div><a href="/Makes/CreateMakes" class="btn btn-outline-primary"> Create new </a></div>
 
 <div class="card">
-<table class="col-4">
+<table class="col-8">
     <thead>
     <tr>
         <th>Name</th>
@@ -17,7 +18,8 @@
         @foreach(var item in @Model.Makes)
         {
             <tr>         
-            <td> @item.Name  </td>
+            <td class="form-control"> @item.Name  </td>
+            <td> <a href="/Makes/DeleteMake?Id=@item.Id" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this?')">Delete</a> </td>
            </tr>
         }
     </tbody>

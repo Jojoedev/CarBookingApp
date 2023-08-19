@@ -16,9 +16,12 @@ namespace CarBookingApp.Pages.Logics
         {
             if(id != null)
             {
-                var DelCar = (from n in _Context.Cars
+                /*var DelCar = (from n in _Context.Cars
                               where n.Id == id
                               select n).FirstOrDefault();
+                */
+                var DelCar = _Context.Cars.Where(n => n.Id == id).FirstOrDefault();
+                
                 _Context.Remove(DelCar);
                 _Context.SaveChanges();
             }

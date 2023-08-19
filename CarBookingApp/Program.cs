@@ -1,16 +1,24 @@
+using CarBookingApp.Identity;
 using CarBookingDataLibrary.Migrations.Context;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddMvc().AddRazorPagesOptions(options =>
-options.Conventions.AddPageRoute("/Logics/List", "")); //This is used to customize the default page.
+options.Conventions.AddPageRoute("/Logics/List", "")); //This is used to set customized default page.
+
 
 builder.Services.AddDbContext<CarApplicationDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddIdentityCore<ApplicationUser>(options => {options.SignIn.RequireConfirmedAccount =false; 
+    options.Password.RequiredLength = 7;})
+       .AddRoles<IdentityRole>()
+       .AddEntityFrameworkStores<CarApplicationDbContext>();
 
 
 var app = builder.Build();

@@ -1,0 +1,22 @@
+﻿@page
+@model CarBookingApp.Pages.CarModels.CarModelListModel
+@{
+}
+
+           <div> Model Name</div>
+ <a href="/CarModels/CreateCarModel" class="btn btn-secondary">Create a Model</a>
+<div class="card">
+    <table class="table table-stripped">
+        
+        <tbody>
+            @foreach (var item in Model.CarModel)
+             {
+                 <tr> <td> @item.Name </td>  
+                    <td> <a href="/CarModels/DeleteCarModel?Id=@item.Id" onclick="return confirm('Are you sure you want to delete this?')" class="btn btn-danger">Delete</a>  </td>    
+                 </tr>                       
+            }           
+        </tbody>
+    </table>
+  
+</div>
+

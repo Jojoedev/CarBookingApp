@@ -6,13 +6,13 @@
 
 <div class="col-12">
   <div class="card">
-<form method="post">
+    <form method="post">
     <div asp-validation-summary="All" class="text-danger"> </div>
     <div class="card-body">
     <div class="form-group">
          <label asp-for="NewCar.MakeId" class="control-label"></label> 
         
-         <select class="form-control" asp-for="NewCar.MakeId" asp-items="Model.Make">
+         <select id="makes" class="form-control" asp-for="NewCar.MakeId" asp-items="Model.Make">
              <option>Select Make</option>
          </select>
          <span asp-validation-for="@Model.NewCar.MakeId" class="text-danger"></span>
@@ -20,15 +20,16 @@
     </div>
     
     <div class="form-group">
-        <label asp-for="NewCar.CarModelId" class="control-label"></label>
-        <select asp-for="NewCar.CarModelId" asp-items="Model.CarModel" class="form-control"> 
-            <option> Select Model </option>
+        <label  asp-for="NewCar.CarModelId" class="control-label"></label>
+        <select id="models" asp-for="NewCar.CarModelId" class="form-control"  > 
+        @*<select asp-for="NewCar.CarModelId" class="form-control" asp-items="Model.CarModel"  > 
+            <option> Select Model </option>*@
         </select>
         <span asp-validation-for="@Model.NewCar.CarModelId" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="NewCar.ColourId" class="control-label"></label>
-        <select asp-for="NewCar.ColourId" asp-items="Model.Colour" class="form-control"> 
+        <select id="colour" asp-for="NewCar.ColourId" asp-items="Model.Colour" class="form-control"> 
             <option> Select Colour </option>
         </select>
         <span asp-validation-for="@Model.NewCar.ColourId" class="text-danger"></span>
@@ -37,18 +38,11 @@
       
     <div class="form-group">
 
-         <label asp-for="@Model.NewCar.DateCreated" class="control-lable"></label>
-         <input asp-for="@Model.NewCar.DateCreated=DateTime.Now" class="form-control"/>
+         <label asp-for="@Model.NewCar.DateCreated" class="control-lable" hidden></label>
+         <input asp-for="@Model.NewCar.DateCreated=DateTime.Now" hidden class="form-control"/>
           <span asp-validation-for="@Model.NewCar.Make"></span>
     </div>
-    <div class="form-group">
-
-         @*<label asp-for="@Model.NewCar.Model" class="control-lable"></label>
-         <input asp-for="@Model.NewCar.Model" class="form-control"/>
-          <span asp-validation-for="@Model.NewCar.Model"></span>*@
-    </div>
-    
-    
+        
     
     <div class="form-group">
 
@@ -81,7 +75,48 @@
 
     <a href="/Logics/List" class="btn btn-outline-info"> Back to List</a>
     </div>
-    
+
+   
 </form>
 </div>
 </div>
+
+
+@section Scripts{
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+   
+
+
+@*<script src="~/js/JqueryLogics.js"></script>*@
+<script>
+$('#makes').change(function () {
+    var makeId = $(this).val();
+    console.log("The Id is " + makeId);
+
+    $('#models').html('<option>Select Model</option>');
+
+
+    $.getJSON('/Logics/Create?handler=CarModel', { id: makeId }, function (data) {
+
+        console.log("This is data " + data);
+        $.each(data, function (key, value) {
+            var option = $('<option></option>').attr('value', value.id).text(value.name);
+            
+
+            //var selectedOption = option.attr('value', value.id).text(value.name);
+            $('#models').append(option);
+
+        });
+    });
+
+});
+    
+
+
+</script>
+
+};
+
+     

@@ -9,8 +9,10 @@ namespace CarBookingDataLibrary
     public class Make: BaseClass
     {
         
-        //public int? Id { get; set; }
-        public string Name { get; set; }
-       // public virtual List<Car> Cars { get; set; }
+       //public int? Id { get; set; }
+       public string Name { get; set; }
+       public virtual List<Car>? Cars { get; set; }
+       public virtual List<CarModel>? CarModel { get; set; }
+
     }
 }

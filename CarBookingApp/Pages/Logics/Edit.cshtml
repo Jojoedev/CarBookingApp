@@ -18,17 +18,32 @@
             
             <tr>
                  <th> Name</th>
-                 <td> <input asp-for="@Model.car.Make.Name" class="form-control"/>  
+                 <td>
+                  <select id="makes" asp-for="@Model.car.MakeId" asp-items="@Model.Make">
+                     <option>Select Make</option>
+                 </select>
+                 @*<td> <input asp-for="@Model.car.Make.Name" class="form-control"/>*@  
+                     </td>
             </tr>
             
             
             <tr>
                  <th> Model</th>
-                 <td> <input asp-for="@Model.car.CarModel.Name" class="form-control"/> </td>
+                 <td>
+                  <select id="models" asp-for="@Model.car.CarModelId" asp-items="@Model.carModel">
+                     <option>Select Model</option>
+                 </select>
+                 </td>
+                 @*<td> <input asp-for="@Model.car.CarModel.Name" class="form-control"/> </td>*@
             </tr>
             <tr>
                  <th> Colour</th>
-                 <td> <input asp-for="@Model.car.Colour.Name" class="form-control"/> </td>
+                 <td>
+                 <select asp-for="@Model.car.ColourId" asp-items="@Model.Colour">
+                     <option>Select Colour</option>
+                 </select>
+                 </td>
+                @* <td> <input asp-for="@Model.car.Colour.Name" class="form-control"/> </td>*@
             </tr>
             
             <tr>
@@ -67,4 +82,14 @@
     </form>
 </div>
 </div>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script src="~/js/JqueryLogics.js"></script>
+    }
+
+
  

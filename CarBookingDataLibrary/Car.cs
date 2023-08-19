@@ -23,7 +23,7 @@ namespace CarBookingDataLibrary
         [Display(Name = "Model")]
         [StringLength(maximumLength: 25, MinimumLength = 3, ErrorMessage = "Must contain at least 3 letters")]
 */
-        [StringLength(maximumLength: 25, MinimumLength = 3, ErrorMessage = "Must contain at least 3 letters")]
+        [StringLength(maximumLength: 25, MinimumLength=3, ErrorMessage = "Must contain at least 3 letters")]
         [Required]
         [Display(Name ="User")]
         public string NameOfDriver { get; set; }
@@ -44,7 +44,6 @@ namespace CarBookingDataLibrary
 
         /*[Required] */
         public int? MakeId { get; set; }
-
         public virtual Make? Make { get; set; }
 
 

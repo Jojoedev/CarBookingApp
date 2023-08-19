@@ -2,11 +2,12 @@
 @model CarBookingApp.Pages.ColourLogic.ColourListModel
 @{
 }
+<div><a href="/ColourLogic/CreateColour" class="btn btn-outline-primary">Create a colour</a></div>
 <div class="card">
 <table class="col-4">
     <thead>
     <tr>
-        <th>Name</th>
+        <th>Colour Name</th>
     </tr>
     </thead>
 
@@ -14,7 +15,8 @@
         @foreach(var item in @Model.ColourList)
         {
             <tr>         
-            <td> @item.Name  </td>
+            <td class="form-control"> @item.Name  </td>
+            <td> <a href="/ColourLogic/DeleteColour?Id=@item.Id" onclick="return confirm('Are you sure you want to delete this?')" class="btn btn-danger">Delete</a>  </td>
            </tr>
         }
     </tbody>

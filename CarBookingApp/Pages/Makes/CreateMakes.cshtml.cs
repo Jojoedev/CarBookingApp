@@ -1,6 +1,7 @@
 using CarBookingDataLibrary;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CarBookingApp.Pages.Makes
 {
@@ -19,16 +20,13 @@ namespace CarBookingApp.Pages.Makes
         public ActionResult OnGet()
         {
             return Page();
+            
         }
-
-
-
 
         public ActionResult OnPost(Make NewMake)
         {
            
             CheckDuplication(NewMake);
-
 
             if (ModelState.IsValid)
             {
@@ -42,16 +40,18 @@ namespace CarBookingApp.Pages.Makes
         }
       
 
-        //This Method checks if a new being created exists in the DB.
+        //This Method checks if a new make being created exists in the DB.
         public void CheckDuplication(Make make)
         {
             var CheckDup = _Context.Makes.Where(n => n.Name == make.Name);
             if (CheckDup.Any())
             {
-                throw new Exception("Error!,The Make you are trying to create exists in the Database");
+                throw new Exception($"Error!,The {NewMake.Name} you are trying to create exists in the Database");
                
             }
             
         }
+
+        
     }
 }
