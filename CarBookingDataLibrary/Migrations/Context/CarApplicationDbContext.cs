@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
-using CarBookingApp.Identity;
+using CarBookingApp.Model;
 
 namespace CarBookingDataLibrary.Migrations.Context
 {

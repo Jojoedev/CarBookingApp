@@ -1,4 +1,5 @@
-using CarBookingApp.Identity;
+using CarBookingApp.Model;
+using CarBookingApp.Model;
 using CarBookingDataLibrary.Migrations.Context;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
