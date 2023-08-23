@@ -1,5 +1,4 @@
 using CarBookingApp.Model;
-using CarBookingApp.Model;
 using CarBookingDataLibrary.Migrations.Context;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -16,10 +15,11 @@ options.Conventions.AddPageRoute("/Logics/List", "")); //This is used to set cus
 builder.Services.AddDbContext<CarApplicationDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddIdentityCore<ApplicationUser>(options => {options.SignIn.RequireConfirmedAccount =false; 
-    options.Password.RequiredLength = 7;})
-       .AddRoles<IdentityRole>()
-       .AddEntityFrameworkStores<CarApplicationDbContext>();
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
+    //.AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<CarApplicationDbContext>();
+
+   
 
 
 var app = builder.Build();
@@ -36,6 +36,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseAuthentication();;
 
 app.UseAuthorization();
 

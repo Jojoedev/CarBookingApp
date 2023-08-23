@@ -9,9 +9,9 @@ namespace CarBookingApp.Pages.Logics
 {
     public class CreateModel : PageModel
     {
-        private readonly CarBookingDataLibrary.Migrations.Context.CarApplicationDbContext _Context;
+        private readonly CarApplicationDbContext _Context;
 
-        public CreateModel(CarBookingDataLibrary.Migrations.Context.CarApplicationDbContext context)
+        public CreateModel(CarApplicationDbContext context)
         {
             this._Context = context;
         }
