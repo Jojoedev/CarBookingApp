@@ -8,18 +8,27 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddMvc().AddRazorPagesOptions(options =>
-options.Conventions.AddPageRoute("/Logics/List", "")); //This is used to set customized default page.
+
 
 
 builder.Services.AddDbContext<CarApplicationDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
-    //.AddRoles<IdentityRole>()
+
+
+builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<CarApplicationDbContext>();
 
-   
+
+//This is used to set customized default page.
+
+builder.Services.AddMvc().AddRazorPagesOptions(options =>
+options.Conventions.AddPageRoute("/Logics/List", "")); 
+
+//builder.Services.AddRazorPages(options => options.Conventions.AuthorizeFolder("/"));
+
+builder.Services.AddAuthentication();   
 
 
 var app = builder.Build();

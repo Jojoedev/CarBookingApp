@@ -1,9 +1,11 @@
 using CarBookingDataLibrary;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CarBookingApp.Pages.CarModels
 {
+    [Authorize]
     public class CarModelListModel : PageModel
     {
 

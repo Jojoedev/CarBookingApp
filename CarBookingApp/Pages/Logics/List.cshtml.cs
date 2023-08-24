@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using CarBookingDataLibrary;
 using CarBookingDataLibrary.Migrations.Context;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CarBookingApp.Pages.Logics
 {
+    [Authorize]
     public class IndexModel : PageModel
     {
         private readonly CarBookingDataLibrary.Migrations.Context.CarApplicationDbContext _context;
