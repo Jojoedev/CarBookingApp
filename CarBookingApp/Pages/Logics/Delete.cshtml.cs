@@ -1,8 +1,10 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CarBookingApp.Pages.Logics
 {
+    [Authorize(Roles = "IT")]
     public class DeleteModel : PageModel
     {
 

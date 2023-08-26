@@ -1,8 +1,10 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CarBookingApp.Pages.Makes
 {
+    [Authorize(Roles = "IT")]
     public class DeleteMakeModel : PageModel
     {
         private readonly CarBookingDataLibrary.Migrations.Context.CarApplicationDbContext _Context;

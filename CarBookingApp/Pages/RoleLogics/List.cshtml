@@ -1,0 +1,24 @@
+﻿@page
+@model CarBookingApp.Pages.RoleLogics.ListModel
+@{
+}
+<h4> List of Roles</h4>
+<a href="/RoleLogics/Create" class="btn btn-primary">Create Role</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Role Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Role)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>

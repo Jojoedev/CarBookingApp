@@ -1,8 +1,10 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CarBookingApp.Pages.ColourLogic
 {
+    [Authorize(Roles = "IT")]
     public class DeleteColourModel : PageModel
     {
         private readonly CarBookingDataLibrary.Migrations.Context.CarApplicationDbContext _Context;

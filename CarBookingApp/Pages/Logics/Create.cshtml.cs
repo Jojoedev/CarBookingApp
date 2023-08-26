@@ -1,5 +1,6 @@
 using CarBookingDataLibrary;
 using CarBookingDataLibrary.Migrations.Context;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -7,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CarBookingApp.Pages.Logics
 {
+    [Authorize(Roles = "IT, Accounts, IT2")]
     public class CreateModel : PageModel
     {
         private readonly CarApplicationDbContext _Context;

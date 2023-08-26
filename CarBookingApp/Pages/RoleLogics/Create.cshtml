@@ -1,0 +1,13 @@
+﻿@page
+@model CarBookingApp.Pages.RoleLogics.CreateModel
+@{
+}
+
+<form method="post" class="form-group">
+    <div>
+        <label asp-for="@Model.Role.Name" class="form-label"></label>
+        <input asp-for="@Model.Role.Name" class="form-control">
+    </div>
+    <input type="submit" class="btn btn-primary"/>
+</form>
+ <a href="/RoleLogics/List" class="btn btn-outline-primary">Role List</a>

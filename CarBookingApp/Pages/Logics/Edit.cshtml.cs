@@ -1,4 +1,5 @@
 using CarBookingDataLibrary;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -6,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CarBookingApp.Pages.Logics
 {
+    [Authorize(Roles = "IT")]
     public class EditModel : PageModel
     {
         public readonly CarBookingDataLibrary.Migrations.Context.CarApplicationDbContext _Context;

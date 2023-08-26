@@ -1,10 +1,12 @@
 using CarBookingDataLibrary;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CarBookingApp.Pages.Makes
 {
+    [Authorize(Roles = "IT, Accounts, IT2")]
     public class CreateModel : PageModel
     {
 
